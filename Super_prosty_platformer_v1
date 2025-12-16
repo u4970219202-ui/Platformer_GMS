@@ -52,6 +52,10 @@ if (place_meeting(x, y, obj_solid)) {    // jeśli napotka przeszkodę w pionie 
     vsp = 0;
 }
 
+// Restart pokoju przy upadku
+if (y > room_height) {
+    room_restart();
+}
 
 CO WARTO ZROZUMIEĆ Z TEGO KODU
 1️⃣ hsp i vsp
