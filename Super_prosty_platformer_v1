@@ -44,11 +44,14 @@ if (place_meeting(x, y, obj_solid)) {    // jeśli napotka przeszkodę w poziomi
     x -= hsp;
 }
 
-//Ruch pionowy
-y += vsp;     // powoduje że zmienna y która jest pozycją pionową zmienia się o ysp czyli naszą prędkość pionową z kierunkiem
 
-if (place_meeting(x, y, obj_solid)) {    // jeśli napotka przeszkodę w pionie to cofa o ysp playera
-    y -= vsp;
+// RUCH PIONOWY Z KOLIZJĄ
+y += vsp;
+
+if (place_meeting(x, y, obj_solid)) {
+    while (!place_meeting(x, y - sign(vsp), obj_solid)) {
+        y -= sign(vsp);
+    }
     vsp = 0;
 }
 
